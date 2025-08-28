@@ -6,11 +6,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const counter = document.getElementById('counter')
     const attempted = document.getElementById('attempted')
     const limit = 100
-    let number, history, mark, lastingAttempts
+    let number, lastingAttempts, history, mark
 
     const updateScreen = () => {
-        counter.textContent = "Número de tentativas: " + lastingAttempts
-        attempted.textContent = "Palpites anteriores: " + history.join(', ')
+        counter.textContent = "Tentativas: " + lastingAttempts + "/10"
+        if (history.length > 0) attempted.textContent = "Palpites anteriores: " + history.join(', ')
+    }
+
+    const initialize = () => {
+        output.textContent = "", attempted.textContent = ""
+        number = parseInt(Math.random() * limit)
+        history = []
+        mark = new Array(100).fill(false)
+        lastingAttempts = 10
+        form.innerHTML = `
+            <label for="number">Digite um número entre 1 e 100 (incluso)</label><br><br>
+            <input type="number" id="number">
+            <button id="button" type="submit">Enviar</button>
+        `
+        updateScreen()
     }
 
     const start = () => {
@@ -35,28 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    const initialize = () => {
-        number = parseInt(Math.random() * limit)
-        history = []
-        mark = new Array(101).fill(false)
-        lastingAttempts = 10
-        form.innerHTML = `
-            <label for="number">Digite um número entre 1 e 100 (incluso)</label><br><br>
-            <input type="number" id="number">
-            <button id="button" type="submit">Enviar</button>
-        `
-        updateScreen()
+    const isValid = (input) => 1 <= input && input <= limit
+
+    const isMarked = (input) => mark[input]
+
+    const checkAttempt = (input) => {
+        if (input === number) {
+            output.textContent = "Acertou! o número era: " + number
+            return true
+        }
+        else if (input < number) output.textContent = "Muito baixo"
+        else output.textContent = "Muito Alto"
+        if (lastingAttempts === 0) {
+            output.textContent = "Você perdeu! O número era: " + number
+            return true
+        }
     }
-
-    const isValid = (number) => 1 <= number && number <= limit
-
-    const isMarked = (number) => mark[number]
 
     form.addEventListener('submit', function(event) {
         event.preventDefault() 
+        
+        let input, winOrLose
 
-        let win = false, lose = false
-        let input = Number(document.getElementById("number").value)
+        input = Number(document.getElementById("number").value)
 
         if (isMarked(input)) {
             output.textContent = "Você já escolheu esse número!"
@@ -71,24 +86,15 @@ document.addEventListener('DOMContentLoaded', () => {
         --lastingAttempts
         mark[input] = true
 
-        if (input === number) {
-            output.textContent = "Acertou, o número era: " + number
-            win = true
-        }
-        else if (input < number) output.textContent = "Muito baixo"
-        else output.textContent = "Muito Alto"
-        if (lastingAttempts === 0) {
-            output.textContent = "Você perdeu! O número era: " + number
-            lose = true
-        }
+        winOrLose = checkAttempt(input)
 
         history.push(input)
+
         updateScreen()
 
-        if (win || lose) restart()
+        if (winOrLose) restart()
 
         form.reset()
     })
-
     start()
 })
