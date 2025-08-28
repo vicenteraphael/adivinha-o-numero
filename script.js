@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output')
     const counter = document.getElementById('counter')
     const attempted = document.getElementById('attempted')
+    const limit = 100
     let number, history, mark, lastingAttempts
 
     const updateScreen = () => {
@@ -35,19 +36,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const initialize = () => {
-        number = parseInt(Math.random() * 20)
+        number = parseInt(Math.random() * limit)
         history = []
         mark = new Array(101).fill(false)
         lastingAttempts = 10
         form.innerHTML = `
-            <label for="number">Digite um número</label><br>
+            <label for="number">Digite um número entre 1 e 100 (incluso)</label><br><br>
             <input type="number" id="number">
             <button id="button" type="submit">Enviar</button>
         `
         updateScreen()
     }
 
-    const isValid = (number) => 1 <= number && number <= 100
+    const isValid = (number) => 1 <= number && number <= limit
 
     const isMarked = (number) => mark[number]
 
