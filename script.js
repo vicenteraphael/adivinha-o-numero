@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output')
     const counter = document.getElementById('counter')
     const attempted = document.getElementById('attempted')
+<<<<<<< HEAD
     const limit = 20
     let number, lastingAttempts, history, mark
     const createConfetti = () => {
@@ -29,6 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         }
     };
+=======
+    const limit = 100
+    let number, lastingAttempts, history, mark
+>>>>>>> origin/main
 
     const updateScreen = () => {
         counter.textContent = "Tentativas: " + lastingAttempts + "/10"
@@ -42,7 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         mark = new Array(100).fill(false)
         lastingAttempts = 10
         form.innerHTML = `
+<<<<<<< HEAD
             <label for="number">Digite um número entre 1 e 20 (incluso)</label><br><br>
+=======
+            <label for="number">Digite um número entre 1 e 100 (incluso)</label><br><br>
+>>>>>>> origin/main
             <input type="number" id="number">
             <button id="button" type="submit">Enviar</button>
         `
@@ -78,7 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAttempt = (input) => {
         if (input === number) {
             output.textContent = "Acertou! o número era: " + number
+<<<<<<< HEAD
             createConfetti();
+=======
+>>>>>>> origin/main
             return true
         }
         else if (input < number) output.textContent = "Muito baixo"
@@ -88,8 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return true
         }
     }
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> origin/main
 
     form.addEventListener('submit', function(event) {
         event.preventDefault() 
