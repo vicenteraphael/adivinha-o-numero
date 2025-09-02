@@ -1,11 +1,9 @@
-<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
-   background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffotos-gratis%2Fcodigo-binario-de-ilustracao-3d-sobre-fundo-azul-bytes-de-codigo-binario-tecnologia-de-conceito-fundo-binario-digital_92790-2153.jpg%3Fw%3D2000&f=1&nofb=1&ipt=3c17c20bcda1e5ec60387391e28e92ab69ddc64f4e8299e16294a99d7d5bafae);
+    background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffotos-gratis%2Fcodigo-binario-de-ilustracao-3d-sobre-fundo-azul-bytes-de-codigo-binario-tecnologia-de-conceito-fundo-binario-digital_92790-2153.jpg%3Fw%3D2000&f=1&nofb=1&ipt=3c17c20bcda1e5ec60387391e28e92ab69ddc64f4e8299e16294a99d7d5bafae);
     text-align: center;
     padding: 50px;
 }
-
 
 #form {
     margin-bottom: 20px;
@@ -14,7 +12,7 @@ body {
 #form input {
     padding: 10px;
     font-size: 16px;
-    width: 100px;
+    width: 200px;
     margin-right: 10px;
 }
 
@@ -81,9 +79,3 @@ body {
         transform: translateY(100vh) rotate(360deg);
     }
 }
-=======
-/*Raphael e Lucas Novais*/
-* {
-    font-size: large;
-}
->>>>>>> origin/main

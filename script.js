@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output')
     const counter = document.getElementById('counter')
     const attempted = document.getElementById('attempted')
-<<<<<<< HEAD
-    const limit = 20
+    const minLimit = 1, maxLimit = 20
     let number, lastingAttempts, history, mark
+
     const createConfetti = () => {
         const colors = ['#FF0', '#F00', '#00F', '#0F0', '#F0F', '#0FF'];
         const totalConfetti = 100;
@@ -24,16 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
             confetto.style.animation = `fall ${Math.random() * 3 + 3}s linear infinite`;
             document.body.appendChild(confetto);
             
-            // Remover confete após animação
             setTimeout(() => {
                 confetto.remove();
-            }, 4000);
+            }, 3000);
         }
     };
-=======
-    const limit = 100
-    let number, lastingAttempts, history, mark
->>>>>>> origin/main
 
     const updateScreen = () => {
         counter.textContent = "Tentativas: " + lastingAttempts + "/10"
@@ -42,16 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialize = () => {
         output.textContent = "", attempted.textContent = ""
-        number = parseInt(Math.random() * limit)
+        number = parseInt(Math.random() * maxLimit)
         history = []
         mark = new Array(100).fill(false)
         lastingAttempts = 10
         form.innerHTML = `
-<<<<<<< HEAD
             <label for="number">Digite um número entre 1 e 20 (incluso)</label><br><br>
-=======
-            <label for="number">Digite um número entre 1 e 100 (incluso)</label><br><br>
->>>>>>> origin/main
             <input type="number" id="number">
             <button id="button" type="submit">Enviar</button>
         `
@@ -80,17 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    const isValid = (input) => 1 <= input && input <= limit
+    const isValid = (input) => minLimit <= input && input <= maxLimit
 
     const isMarked = (input) => mark[input]
 
     const checkAttempt = (input) => {
         if (input === number) {
             output.textContent = "Acertou! o número era: " + number
-<<<<<<< HEAD
             createConfetti();
-=======
->>>>>>> origin/main
             return true
         }
         else if (input < number) output.textContent = "Muito baixo"
@@ -100,12 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return true
         }
     }
-<<<<<<< HEAD
     
-    
-=======
->>>>>>> origin/main
-
     form.addEventListener('submit', function(event) {
         event.preventDefault() 
         
