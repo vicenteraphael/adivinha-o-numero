@@ -1,3 +1,8 @@
+* {
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimage.freepik.com%2Ffotos-gratis%2Fcodigo-binario-de-ilustracao-3d-sobre-fundo-azul-bytes-de-codigo-binario-tecnologia-de-conceito-fundo-binario-digital_92790-2153.jpg%3Fw%3D2000&f=1&nofb=1&ipt=3c17c20bcda1e5ec60387391e28e92ab69ddc64f4e8299e16294a99d7d5bafae);
@@ -5,20 +10,51 @@ body {
     padding: 50px;
 }
 
+#start-game h1 {
+    color: yellow;
+}
+
+.gameArea {
+    background-color:gold;
+    border-radius: 2%;
+    max-width: 800px;
+    height: 400px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-flow: column;
+    justify-content:space-evenly;
+    margin: auto;
+}
+
+#form {
+    padding: 20px;
+}
+
+.responses {
+    padding: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+    font-weight: bold;
+}
+
 #form {
     margin-bottom: 20px;
 }
 
+#form label {
+    color: black;
+}
+
 #form input {
     padding: 10px;
-    font-size: 16px;
     width: 200px;
     margin-right: 10px;
 }
 
 #form button {
     padding: 10px 20px;
-    font-size: 16px;
     cursor: pointer;
     background-color: #a7a3a3;
     color: rgb(201, 43, 43);
@@ -26,31 +62,25 @@ body {
     border-radius: 5px;
 }
 
-
 #output {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff;
+    align-self: center;
+    justify-self:flex-start;
+    color: #000;
 }
 
 #counter {
-    font-size: 16px;
+    color: #333;
     margin-top: 10px;
-    color: aliceblue;
 }
-
 
 #attempted {
     margin-top: 10px;
-    font-size: 14px;
-    color: #777;
+    color:#FF5722;
 }
 
 
 #start-game button {
     padding: 15px 30px;
-    font-size: 20px;
     cursor: pointer;
     background-color: #475764;
     color: white;
@@ -61,7 +91,6 @@ body {
 
 #restart-game button {
     padding: 15px 30px;
-    font-size: 20px;
     cursor: pointer;
     background-color: #FF5722;
     color: white;

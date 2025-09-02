@@ -1,6 +1,7 @@
 //Raphael e Lucas Novais
 document.addEventListener('DOMContentLoaded', () => {
 
+    const gameArea = document.getElementById('gameArea')
     const form = document.getElementById('form')
     const output = document.getElementById('output')
     const counter = document.getElementById('counter')
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const initialize = () => {
+        gameArea.style.display = "flex"
         output.textContent = "", attempted.textContent = ""
         number = parseInt(Math.random() * maxLimit)
         history = []
@@ -50,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const start = () => {
+        gameArea.style.display = "none"
         document.getElementById("start-game").innerHTML = `
             <h1>Adivinhe o número</h1>
             <button id="start">Começar</button>
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const restart = () => {
-        form.innerHTML = ``
+        form.innerHTML = ''
         document.getElementById("restart-game").innerHTML = `
             <button id="restart">Recomeçar</button>
         `
