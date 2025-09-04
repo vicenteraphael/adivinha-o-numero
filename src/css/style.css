@@ -4,18 +4,17 @@
 }
 
 html, body {
-    background-color: #2d4670;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
 body {
-    background-image: url(src/bg-image.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    background-color: #090a0a;
+    background-image: url(/src/img/bg-image.png);
+    image-rendering: optimizeQuality;
+    background-size: 500px;
     padding: 50px;
 }
 
@@ -59,6 +58,7 @@ body {
 }
 
 .gameArea {
+    opacity: 0.95;
     background-color:gold;
     border-radius: 2%;
     max-width: 800px;

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const output = document.getElementById('output')
     const counter = document.getElementById('counter')
     const attempted = document.getElementById('attempted')
-    const minLimit = 1, maxLimit = 20
+    const minLimit = 1, maxLimit = 20, attempts = 10
     let number, lastingAttempts, history, mark
 
     const createConfetti = () => {
@@ -27,23 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
             
             setTimeout(() => {
                 confetto.remove();
-            }, 3000);
+            }, 2000);
         }
     };
 
     const updateScreen = () => {
         counter.textContent = "Tentativas: " + lastingAttempts + "/10"
-        if (history.length > 0) attempted.textContent = "Palpites anteriores: " + history.join(', ')
+        if (history.length) attempted.textContent = "Palpites anteriores: " + history.join(', ')
     }
 
     const initialize = () => {
         gameArea.style.display = "flex"
         form.style.display = "block"
         output.textContent = "", attempted.textContent = ""
-        number = parseInt(Math.random() * maxLimit)
+        number = Math.floor(Math.random() * maxLimit) + minLimit
         history = []
         mark = new Array(100).fill(false)
-        lastingAttempts = 10
+        lastingAttempts = attempts
         updateScreen()
     }
 
