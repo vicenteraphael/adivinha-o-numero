@@ -9,17 +9,26 @@
 </head>
 <body>
     <script src="script.js"></script>
-    <div id="start-game"></div>
+    <div id="start-game">
+        <h1>Adivinhe o número</h1>
+        <button id="start">Começar</button>
+    </div>
     <div class="gameArea" id="gameArea">
         <div id="gameForm">
-            <form id="form"></form>
+            <form id="form">
+                <label for="number">Digite um número entre 1 e 20 (incluso)</label><br><br>
+                <input type="number" id="number">
+                <button id="button" type="submit">Enviar</button>
+            </form>
         </div>
+        <p id="output"></p>
         <div class="responses">
-            <p id="output"></p>
             <p id="counter"></p>
             <p id="attempted"></p>
         </div>
-        <div id="restart-game"></div>
+        <div id="restart-game">
+            <button id="restart">Recomeçar</button>
+        </div>
     </div>
 </body>
 </html> 

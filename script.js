@@ -38,40 +38,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initialize = () => {
         gameArea.style.display = "flex"
+        form.style.display = "block"
         output.textContent = "", attempted.textContent = ""
         number = parseInt(Math.random() * maxLimit)
         history = []
         mark = new Array(100).fill(false)
         lastingAttempts = 10
-        form.innerHTML = `
-            <label for="number">Digite um número entre 1 e 20 (incluso)</label><br><br>
-            <input type="number" id="number">
-            <button id="button" type="submit">Enviar</button>
-        `
         updateScreen()
     }
 
     const start = () => {
         gameArea.style.display = "none"
-        document.getElementById("start-game").innerHTML = `
-            <h1>Adivinhe o número</h1>
-            <button id="start">Começar</button>
-        `
+        document.getElementById("start-game").style.display = "block"
         document.getElementById("start").addEventListener('click', () => {
-            document.getElementById("start-game").innerHTML = ``
+            document.getElementById("start-game").style.display = "none"
             initialize()
         })
     }
 
+    document.getElementById("restart").addEventListener('click', () => {
+        initialize()
+    })
+
     const restart = () => {
-        form.innerHTML = ''
-        document.getElementById("restart-game").innerHTML = `
-            <button id="restart">Recomeçar</button>
-        `
-        document.getElementById("restart").addEventListener('click', () => {
-            document.getElementById("restart-game").innerHTML = ``
-            initialize()
-        })
+        form.style.display = "none"
     }
 
     const isValid = (input) => minLimit <= input && input <= maxLimit
