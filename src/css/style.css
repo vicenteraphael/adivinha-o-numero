@@ -12,7 +12,7 @@ html, body {
 
 body {
     background-color: #090a0a;
-    background-image: url(/src/img/bg-image.png);
+    background-image: url(../img/bg-image.png);
     image-rendering: optimizeQuality;
     background-size: 500px;
     padding: 50px;
